@@ -1,0 +1,22 @@
+public class Demo {
+ public static void main(String[] args) {
+ Adhaarno a1 = new Adhaarno(19, "Ajay", 1234567890L);
+ System.out.println(a1.age);
+ System.out.println(a1.name);
+ System.out.println(a1.adhn);
+ Adhaarno a2 = new Adhaarno(19, "Sahil", 9876543210L);
+ System.out.println(a2.age);
+ System.out.println(a2.name);
+ System.out.println(a2.adhn);
+ }
+}
+class Adhaarno {
+ int age;
+ String name;
+ Long adhn;
+ Adhaarno(int a, String na, long adn) {
+ age = a;
+ name = na;
+ adhn = adn;
+ }
+}
