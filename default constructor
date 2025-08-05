@@ -1,0 +1,15 @@
+public class Constructor {
+ int rollno;
+ String name;
+ /*Constructor() {
+ rollno = 30;
+ name = "Ajay";
+ }*/
+ void displayInformation() {
+ System.out.println(rollno + " " + name);
+ }
+ public static void main(String[] args) {
+ Constructor s1 = new Constructor();
+ s1.displayInformation();
+ }
+} 
