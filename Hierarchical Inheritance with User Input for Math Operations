@@ -1,0 +1,54 @@
+import java.util.Scanner;
+public class mathsop{
+ public static void main(String[] args)
+ {
+ B b = new B();
+ b.input();
+ b.add();
+ C c = new C();
+ c.input();
+ c.sub();
+ D d = new D();
+ d.input();
+ d.mul();
+ E e = new E();
+ e.input();
+ e.div();
+
+ }
+}
+class A {
+ int a;
+ int b;
+void input() {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Input first number:");
+ a = sc.nextInt();
+ System.out.println("Enter second number:");
+ b = sc.nextInt();
+}
+}
+class B extends A {
+ void add() {
+ System.out.println("Addition: " + (a + b));
+ }
+}
+class C extends A {
+ void sub() {
+ System.out.println("Subtraction: " + (a - b));
+ }
+}
+class D extends A {
+ void mul() {
+ System.out.println("Multiplication: " + (a * b));
+ }
+}
+class E extends A {
+ void div() {
+ if (b != 0) {
+ System.out.println("Division: " + (a / b));
+ } else {
+ System.out.println("Division by zero is not possible.");
+ }
+ }
+} 
