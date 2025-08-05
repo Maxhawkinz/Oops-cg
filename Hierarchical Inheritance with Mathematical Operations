@@ -1,0 +1,48 @@
+class A
+{
+ int a = 20;
+ int b = 10;
+}
+class B extends A
+{
+ void add()
+ {
+ System.out.println("Addition:"+(a+b));
+ }
+}
+class C extends A
+{
+ void sub()
+ {
+ System.out.println("Subtraction:"+(a-b));
+ }
+}
+class D extends A
+{
+ void mul()
+ {
+ System.out.println("Multiplication:"+(a*b));
+ }
+}
+class E extends A
+{
+ void div()
+ {
+ System.out.println("Division:"+(a/b));
+ }
+}
+public class mathop
+ {
+ public static void main(String[] args)
+ {
+ B b = new B();
+ C c = new C();
+ D d = new D();
+ E e = new E();
+ b.add();
+ c.sub();
+ d.mul();
+ e.div();
+ System.out.println();
+ }
+} 
