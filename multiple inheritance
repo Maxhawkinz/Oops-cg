@@ -2,15 +2,19 @@ public class ShapeDemo {
     public static void main(String[] args) {
         drawable d1 = new Circle(5.0);
         drawable d2 = new Rectangle(4.0, 3.0);
-
+        drawable d3 = new Square(4.0);
+        
         d1.draw(); 
         measurable m1 = new Circle(5.0);
         System.out.println("Area of Circle: " + m1.calculateArea());
         
         d2.draw(); 
         measurable m2 = new Rectangle(4.0, 3.0);
-
         System.out.println("Area of Rectangle: " + m2.calculateArea());
+        
+         d3.draw(); 
+        measurable m3 = new Rectangle(4.0, 3.0);
+        System.out.println("Area of Rectangle: " + m3.calculateArea());
         
     }
 }
@@ -47,5 +51,17 @@ class Rectangle implements drawable,measurable {
     }
     public double calculateArea() {
         return length*width;
+    }
+}
+class Square implements drawable,measurable {
+    double length,width;
+    Square(double length){
+        this.length = length;
+    }
+    public void draw() {
+        System.out.println("Drawing a Square.");
+    }
+    public double calculateArea() {
+        return length*length;
     }
 }
