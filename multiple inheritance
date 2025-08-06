@@ -1,0 +1,51 @@
+public class ShapeDemo {
+    public static void main(String[] args) {
+        drawable d1 = new Circle(5.0);
+        drawable d2 = new Rectangle(4.0, 3.0);
+
+        d1.draw(); 
+        measurable m1 = new Circle(5.0);
+        System.out.println("Area of Circle: " + m1.calculateArea());
+        
+        d2.draw(); 
+        measurable m2 = new Rectangle(4.0, 3.0);
+
+        System.out.println("Area of Rectangle: " + m2.calculateArea());
+        
+    }
+}
+interface drawable{
+ void draw();   
+}
+interface measurable{
+    double calculateArea();
+}
+class Circle implements drawable, measurable {
+    double radius;
+
+    Circle(double radius) { 
+        this.radius = radius;
+    }
+
+    public void draw() { 
+        System.out.println("Drawing a Circle");
+    }
+
+    public double calculateArea() { 
+        return Math.PI * radius * radius;
+    }
+}
+
+class Rectangle implements drawable,measurable {
+    double length,width;
+    Rectangle(double length, double width){
+        this.length = length;
+        this.width = width;
+    }
+    public void draw() {
+        System.out.println("Drawing a Rectangle.");
+    }
+    public double calculateArea() {
+        return length*width;
+    }
+}
