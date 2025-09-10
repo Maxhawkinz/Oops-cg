@@ -3,9 +3,12 @@ import java.util.InputMismatchException;
 
 public class ATM {
     double balance;
+    double dailyWithdrawal; 
+    static final double DAILY_LIMIT = 10000;
 
     ATM(double initialization) {
         this.balance = initialization;
+        this.dailyWithdrawal = 0;
     }
 
     double checkBalance() {
@@ -19,12 +22,18 @@ public class ATM {
         if (amount > balance) {
             throw new ArithmeticException("Insufficient balance");
         }
-        if (amount > 51000) {
-            throw new ArithmeticException("Withdrawal limit exceeded");
+        if (amount > 5000) {
+            throw new ArithmeticException("Per transaction limit exceeded (Max $5000)");
         }
+        if ((dailyWithdrawal + amount) > DAILY_LIMIT) {
+            throw new ArithmeticException("Daily withdrawal limit exceeded (Max $10000 per day)");
+        }
+
         balance = balance - amount;
+        dailyWithdrawal += amount; // Add to today's withdrawals
         System.out.println("Withdrawal successful. You have withdrawn: $" + amount);
         System.out.printf("Your current balance is: $%.2f%n", balance);
+        System.out.printf("Total withdrawn today: $%.2f / $%.2f%n", dailyWithdrawal, DAILY_LIMIT);
     }
 
     void deposit(double amount) {
@@ -38,7 +47,7 @@ public class ATM {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ATM a1 = new ATM(10000);  // Set the initial balance to 10000
+        ATM a1 = new ATM(21000);  // Initial balance
         boolean exit = false;
 
         while (!exit) {
@@ -80,12 +89,12 @@ public class ATM {
                 System.out.println("Invalid input: " + e.getMessage());
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input type. Please enter numeric values.");
-                scanner.nextLine();  // Clear the buffer
+                scanner.nextLine();  // Clear buffer
             } finally {
                 System.out.println("Transaction complete.\n");
+                System.out.println("Thank you for using ATM.");
+                System.out.println("Have a good day...");
             }
         }
-
-        // scanner.close();  // Avoid closing scanner here, keeping it open for future inputs
     }
 }
